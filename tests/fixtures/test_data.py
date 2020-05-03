@@ -25,4 +25,4 @@ def parquet_file():
 def parquet_file_s3(parquet_file, aws_session, aws_s3_bucket):
     aws_session.resource('s3')\
         .meta.client.upload_file(parquet_file, aws_s3_bucket, 'target.parquet')
-    return f's3://{aws_s3_bucket}/target.parquet'
+    return aws_s3_bucket, 'target.parquet'
